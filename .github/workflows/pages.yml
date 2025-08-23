@@ -3,8 +3,8 @@ name: Build and Deploy Vite site to GitHub Pages
 on:
   push:
     branches:
-      - main         # change to your default branch if not "main"
-  workflow_dispatch:  # allows manual run from Actions tab
+      - main
+  workflow_dispatch:  # allows manual run
 
 permissions:
   contents: read
@@ -22,8 +22,8 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '18'    # change if you need another version
-          cache: 'npm'          # caches node modules between runs
+          node-version: '18'
+          cache: 'npm'
 
       - name: Install dependencies
         run: npm ci
@@ -37,7 +37,7 @@ jobs:
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v1
         with:
-          path: ./dist        # Vite default output directory
+          path: ./dist
 
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v1

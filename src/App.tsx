@@ -25,7 +25,7 @@ import PrivacyPolicy from './pages/PrivacyPolicy';
 import Disclaimer from './pages/Disclaimer';
 import TermsConditions from './pages/TermsConditions';
 
-/* Blog detail pages (from repo) */
+/* Blog detail pages */
 import MutualFundsPage from './blogs/1.1mutual-funds';
 import SIFPage from './blogs/1.2specified-investment-funds';
 import PMSPage from './blogs/1.3pms-services';
@@ -59,10 +59,8 @@ function App(): JSX.Element {
   return (
     <Router>
       <Header />
-
       <main className="min-h-screen">
         <Routes>
-          {/* Primary pages */}
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
 
@@ -81,12 +79,12 @@ function App(): JSX.Element {
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
 
-          {/* Legal */}
+          {/* Legal pages */}
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/disclaimer" element={<Disclaimer />} />
           <Route path="/terms-conditions" element={<TermsConditions />} />
 
-          {/* Static blog routes (if you want direct paths to each blog page) */}
+          {/* Static blog pages */}
           <Route path="/blogs/1.1mutual-funds" element={<MutualFundsPage />} />
           <Route path="/blogs/1.2specified-investment-funds" element={<SIFPage />} />
           <Route path="/blogs/1.3pms-services" element={<PMSPage />} />
@@ -116,7 +114,6 @@ function App(): JSX.Element {
           <Route path="/blogs/6.3family-governance-legacy-planning" element={<FamilyGovernanceLegacyPage />} />
           <Route path="/blogs/6.4probate-estate-administration" element={<ProbateEstateAdministrationPage />} />
 
-          {/* Fallback - redirect unknown routes to home (or render a NotFound component) */}
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </main>
